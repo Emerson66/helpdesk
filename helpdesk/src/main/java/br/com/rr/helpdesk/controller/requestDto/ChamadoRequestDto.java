@@ -4,8 +4,7 @@ import br.com.rr.helpdesk.model.Chamado;
 import br.com.rr.helpdesk.model.Usuario;
 import br.com.rr.helpdesk.model.enums.ListaStatusChamado;
 
-import br.com.rr.helpdesk.repository.ChamadoRepository;
-import br.com.rr.helpdesk.repository.UsuarioRepository;
+
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 

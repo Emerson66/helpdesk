@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.ConstructorBinding;
 
 @Entity
 @Table(name = "usuario", schema = "helpdesk")
@@ -55,5 +56,12 @@ public class Usuario implements Serializable {
 
 	@Deprecated
 	public Usuario() {
+	}
+
+	public Usuario(String nome, String usuario, String senha, String email) {
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.email = email;
 	}
 }
