@@ -21,64 +21,31 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "bas_entidades", schema = "public")
+@Table(name = "setor", schema = "helpdesk")
 @Getter
 @Setter
 @EqualsAndHashCode
 @ToString
-@XmlRootElement
-@XmlAccessorType(value = XmlAccessType.FIELD)
 public class Setor implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ent_id")
+	@Column(name = "id_setor")
 	private Integer id;
 	
-	@Column(name = "ent_descricao")
-	private String descricao;
+	@Column(name = "descricao_setor")
+	private String descricaoSetor;
 	
-	@Column(name = "ent_descricao_formatada")
-	private String descricaoFormatada;
+	@Column(name = "sigla_setor")
+	private String siglaSetor;
 	
-	@Column(name = "ent_sigla")
-	private String sigla;
+	@Column(name = "codigo_setor")
+	private String codigoSetor;
 	
-	@Column(name = "ent_codigo")
-	private String codigo;
-
-	@XmlTransient
-	@ManyToOne
-	@JoinColumn(name = "id_superior")
-	private Setor superior;
-
-	@XmlTransient
-	@ManyToOne
-	@JoinColumn(name = "ent_hierar_superior")
-	private Setor hierarquico;
+	@Column(name="telefone_setor")
+	private String telefone;
 	
-	@Column
-	private Boolean inativo;
-	
-	@Column(name="ent_sup")
-	private Boolean entidadeSuperior;
-	
-	@Column(name="ent_fone_util")
-	private Boolean foneUtil;
-	
-	@Column(name="ent_fone")
-	private String fone;
-	
-	@Column(name="ent_email")
-	private String email;
-	
-	@Column(name="area_gmap")
-	private String areaMapa;
-	
-	@Column(name="horario_funcionamento")
-	private String horarioFuncionamento;
-	
-	private String cnes;
-
+	@Column(name="email_setor")
+	private String emailSetor;
 }

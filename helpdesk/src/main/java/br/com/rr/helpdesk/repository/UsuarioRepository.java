@@ -1,14 +1,12 @@
 package br.com.rr.helpdesk.repository;
 
-import java.util.UUID;
-
+import br.com.rr.helpdesk.model.Chamado;
+import br.com.rr.helpdesk.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.rr.helpdesk.model.Chamado;
-
 @Repository
-public interface ChamadoRepository extends JpaRepository<Chamado,Long> {
+public interface UsuarioRepository extends JpaRepository<Usuario,Long> {
 
 	
 }
