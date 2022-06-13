@@ -3,17 +3,9 @@ package br.com.rr.helpdesk.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -51,19 +43,19 @@ public class Chamado implements Serializable {
 	@Column(name = "problema_relatado")
 	private String descricaoChamado;
 
-	@ManyToOne
-	@JoinColumn(name = "setor")
-	private Setor setor;
+	@OneToMany
+	@JoinColumn(name = "setor_id")
+	private Set<Usuario> usuarioSet;
 
 	// bi-directional many-to-one association to UsuarioAtendente
 	@ManyToOne
-	@JoinColumn(name = "atendente")
+	@JoinColumn(name = "atendentes_id")
 	private Usuario atendente;
 
 	// bi-directional many-to-one association to UsuarioRequerente
 	@ManyToOne
-	@JoinColumn(name = "id_requerente")
-	private Long requerenteId;
+	@JoinColumn(name = "requerentes_id")
+	private Usuario requerente;
 
 
 	@Column(name = "data_solicitacao")
@@ -74,9 +66,9 @@ public class Chamado implements Serializable {
 	public Chamado() {
 	}
 
-	public Chamado(String assuntosChamado, String descricaoChamado, Long requerenteId) {
+	public Chamado(String assuntosChamado, String descricaoChamado, Usuario requerente) {
 		this.assuntosChamado = assuntosChamado;
 		this.descricaoChamado = descricaoChamado;
-		this.requerenteId = requerenteId;
+		this.requerente = requerente;
 	}
 }

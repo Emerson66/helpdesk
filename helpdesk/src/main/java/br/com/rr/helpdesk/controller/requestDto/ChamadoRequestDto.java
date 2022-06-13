@@ -37,7 +37,7 @@ public class ChamadoRequestDto {
     }
 
     public Optional<Chamado> toModel(Usuario usuario){
-        Chamado chamado = new Chamado(assunto,descricao,usuario.getId());
+        Chamado chamado = new Chamado(assunto,descricao,usuario);
         return Optional.of(chamado);
     }
 }

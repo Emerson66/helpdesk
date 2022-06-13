@@ -7,19 +7,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -54,6 +44,13 @@ public class Usuario implements Serializable {
 	@Column(name = "email_usuario")
 	private String email;
 
+	@OneToMany
+	@JoinColumn(name = "requerentes_id")
+	private Set<Chamado> chamadosRequerente;
+
+	@ManyToOne
+	@JoinColumn(name = "setor_id")
+	private Setor setor;
 	@Deprecated
 	public Usuario() {
 	}
