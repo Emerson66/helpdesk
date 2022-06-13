@@ -61,4 +61,9 @@ public class Usuario implements Serializable {
 		this.senha = senha;
 		this.email = email;
 	}
+
+	public Usuario(String nome, Set<Chamado> chamadosRequerente) {
+		this.nome = nome;
+		this.chamadosRequerente = chamadosRequerente;
+	}
 }

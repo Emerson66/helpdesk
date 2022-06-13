@@ -71,4 +71,7 @@ public class Chamado implements Serializable {
 		this.descricaoChamado = descricaoChamado;
 		this.requerente = requerente;
 	}
+
+    public Chamado(Chamado chamado) {
+    }
 }

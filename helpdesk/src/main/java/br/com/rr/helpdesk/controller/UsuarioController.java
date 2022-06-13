@@ -1,14 +1,15 @@
 package br.com.rr.helpdesk.controller;
 
 import br.com.rr.helpdesk.controller.requestDto.UsuarioRequestDto;
+import br.com.rr.helpdesk.controller.responseDto.UsuarioResponseDto;
 import br.com.rr.helpdesk.model.Usuario;
 import br.com.rr.helpdesk.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -25,8 +26,8 @@ public class UsuarioController {
 
     }
     @GetMapping
-    public List<Usuario> listarUsuarios(){
+    public List<UsuarioResponseDto> listarUsuarios(){
         List<Usuario> usuarios = usuarioRepository.findAll();
-        return usuarios;
+        return UsuarioResponseDto.toModel(usuarios);
     }
 }
