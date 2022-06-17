@@ -72,6 +72,5 @@ public class Chamado implements Serializable {
 		this.requerente = requerente;
 	}
 
-    public Chamado(Chamado chamado) {
-    }
+
 }
